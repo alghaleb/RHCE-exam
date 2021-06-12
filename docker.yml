@@ -1,0 +1,7 @@
+---
+- name: Task 7
+  hosts: dev
+  tasks:
+    - name: Run docker role
+      include_role:
+        name: geerlingguy.docker

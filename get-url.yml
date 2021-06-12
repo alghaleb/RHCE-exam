@@ -1,0 +1,23 @@
+---
+- name: Get URL
+  hosts:  localhost
+  tasks:
+    - name: Download QuickSort
+      get_url:
+        url: https://github.com/bandar-ghalib/quicksortcode/blob/main/code.cpp
+        dest: /tmp/code.cpp
+        owner:  automation
+        group:  automation
+        mode: '0440'
+
+
+- name: Copy file to Node1
+  hosts:  node1
+  tasks:  
+    - name: Copy file with owner and permissions
+      copy:
+        src: /tmp/code.cpp
+        dest: /tmp/code.cpp
+        owner: automation
+        group: automation
+        mode: '0644'

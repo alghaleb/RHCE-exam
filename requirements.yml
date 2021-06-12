@@ -1,0 +1,15 @@
+
+#From ansible galaxy
+- src:  geerlingguy.docker  
+  name: geerlingguy.docker
+
+#From ansible galaxy
+- src: geerlingguy.kubernetes
+  name: geerlingguy.kubernetes
+
+#From ansible galaxy
+- src:  geerlingguy.rabbitmq
+  name: geerlingguy.rabbitmq
+  
+
+

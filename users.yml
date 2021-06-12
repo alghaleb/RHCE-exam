@@ -1,0 +1,17 @@
+---
+- name: Users and Groups
+  hosts:  node1
+  vars_files: 
+    - users-list.yml
+    - secret.yml
+  
+  tasks:
+    - name: 
+      user:
+        name: "{{ item.username }}"
+        shell: /bin/bash
+        uid:  "{{ item.uid }}"
+        password: "{{  user_pass | password_hash('sha512') }}"
+        groups: wheel
+        append: yes
+      loop: "{{ users }}"

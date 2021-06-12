@@ -1,0 +1,8 @@
+---
+- name: First Play
+  hosts:  dev
+  #gather_facts: false
+  tasks:
+    - name: Message
+      debug:
+        msg: The fact is {{ ansible_local.custom.sample_exam.server_role }}

@@ -1,0 +1,38 @@
+---
+# tasks file for httpd-role
+
+- name: install the latest version of Apache and firewalld
+  package:
+    name: 
+      - httpd
+      - firewalld
+    state: latest
+
+- name: Start service httpd, if not started
+  service:
+    name: httpd
+    state: started
+
+- name: Enable service httpd, and not touch the state
+  service:
+    name: httpd
+    enabled: yes
+
+- name: Start service httpd, if not started
+  service:
+    name: firewalld
+    state: started
+
+- name: Enable Firewalld
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  loop: "{{ svcs }}"
+
+- name: Import template
+  template:
+    src: index.j2
+    dest: /var/www/html/index.html
+
+

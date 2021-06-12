@@ -1,0 +1,6 @@
+---
+# defaults file for httpd-role
+
+
+svcs: [http,https]
+sysadmin: cmatrix@fsociety.me

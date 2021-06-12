@@ -1,0 +1,11 @@
+---
+- name: Task 9 Scheduling Tasks
+  hosts:  dev
+  tasks:
+    - name: Scheduling Task
+      cron:
+        name: "Every One Minute"
+        #hour: "*/1"
+        minute: "0"
+        user: root
+        job: logger ”One hour has passed!”

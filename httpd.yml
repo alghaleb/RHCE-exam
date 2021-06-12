@@ -1,0 +1,10 @@
+---
+- name: Task 12 Creating Custom Roles
+  hosts:  node1
+  vars:
+    sysadmin: elliot@allsafe.com
+
+  roles:
+    - role: httpd-role
+
+

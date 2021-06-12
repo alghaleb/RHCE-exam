@@ -1,0 +1,20 @@
+---
+- name: Task 15 Installing Software
+  hosts: all
+  vars:
+    - pkg_dev: [nmap, wireshark]
+    - pkg_test: [tmux, tcpdump]
+  tasks:  
+    - name: Installing nmap and wireshark
+      package:
+        name: "{{ item }}"
+        state:  present
+      when: inventory_hostname in groups['dev'] 
+      loop: "{{ pkg_dev }}"  
+    
+    - name: Installing tmux and tcpdump
+      package:
+        name: "{{ item }}"
+        state: present
+      when: inventory_hostname in groups['test'] 
+      loop: "{{ pkg_test }}"

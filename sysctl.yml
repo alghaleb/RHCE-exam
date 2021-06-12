@@ -1,0 +1,18 @@
+---
+- name: Task 14 Using Conditionals
+  hosts:  node1
+  tasks:
+
+    - name: Set vm.swappiness to 10 in /etc/sysctl.conf
+      sysctl:
+        name: vm.swappiness
+        value: '10'
+        state: present name Server has more than 2048 MB
+      when: ansible_memfree_mb > 2048
+
+
+    - name: Server has less than 2048 MB
+      debug:
+        msg: ”Available RAM is less than 2048 MB”
+      when: ansible_memfree_mb < 2048
+    

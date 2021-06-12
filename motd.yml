@@ -1,0 +1,8 @@
+---
+- name: Set motd value of message variable 
+  hosts:  all
+  tasks:
+    - name: Copying message to Motd
+      copy:
+        content: "{{ message }}"
+        dest: /etc/motd 

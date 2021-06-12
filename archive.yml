@@ -1,0 +1,15 @@
+---
+- name: Task 10 Archiving Files
+  hosts:  test
+  tasks: 
+    - name: 
+      file:
+        path: /backup
+        state: directory
+        mode: '0755'
+
+    - name: 
+      archive:
+        path: /var/log
+        dest: /backup/logs.tar.gz
+        format: gz

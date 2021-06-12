@@ -1,0 +1,15 @@
+---
+- name: Task 11 Creating Custom Facts
+  hosts:  dev
+  tasks:
+    - name: Create the facts.d directory
+      file:
+        path: /etc/ansible/facts.d
+        owner: automation
+        state: directory
+
+    - name: Copy cool.fact to the facts.d directory
+      copy:
+        src: custom.fact
+        dest: /etc/ansible/facts.d
+
