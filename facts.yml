@@ -13,3 +13,11 @@
         src: custom.fact
         dest: /etc/ansible/facts.d
 
+    - name: Inspect the custom fact
+      setup:
+        filter: ansible_local
+      register: myfact
+
+    - name: Show the fact to me
+      debug:
+        msg: The fact is {{ myfact.ansible_facts.ansible_local.custom.sample_exam }}
